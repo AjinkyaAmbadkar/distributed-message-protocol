@@ -113,25 +113,7 @@ CURL to test:
 curl -X POST http://<MINIKUBE_IP>:<NODE_PORT>/message -H "Content-Type: application/json" -d '{"type": "greeting", "content": "Hello, Server!"}'
 
 curl http://<MINIKUBE_IP>:<NODE_PORT>/health
-
------------------------------------------------------------------------------------------------------------------------------------
-                                                    Assignment 2
------------------------------------------------------------------------------------------------------------------------------------
-
-The goal of the Assignment is as follows:
-
-1. Opening a shell into a running Kubernetes pod.
-2. Copying a simple server (server.py) into the container.
-3. Running the server inside the container.
-4. Exposing the server to the outside world using port forwarding.
-5. Testing the server using curl.
-This builds upon Assignment 1, where we created a simple message exchange protocol using Python's Flask framework and deployed it using Docker and Minikube.
-
-In Assignment 1 I have done till step 4 as I have already copied the server.file inside the container. I was able to run it properly too. The one issue I was facing is that the port 5050 which i have used was already occupied as I have deployed the image on minikube and that was running. 
-
-I checked that by using *docker ps* command and stop the execution of particular image on docker.
-
-Then As mentioned in the last step I exposed my server to the outside world using the port forwarding.
+ 
 
 kubectl port-forward pod/server-deployment-db495c9-xqxhl 8000:5050
 
