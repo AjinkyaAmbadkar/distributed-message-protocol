@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ajambadk-sset  
+spec:
+  serviceName: dms-service
+  replicas: 4   
+  selector:
+    matchLabels:
+      app: simple-server
+  template:
+    metadata:
+      labels:
+        app: simple-server
+    spec:
+      containers:
+      - name: simple-server
+        image: simple-protocol-exchange:latest  
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5050

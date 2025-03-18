@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dms-service  # New service name
+spec:
+  selector:
+    app: simple-server  # Ensure this matches StatefulSet labels
+  ports:
+    - protocol: TCP
+      port: 5050
+      targetPort: 5050
+      nodePort: 31382  # Different from the existing 31381
+  type: NodePort

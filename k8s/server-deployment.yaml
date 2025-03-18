@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-server
+  template:
+    metadata:
+      labels:
+        app: simple-server
+    spec:
+      containers:
+      - name: simple-server
+        image: simple-protocol-exchange:latest  # Updated image name
+        imagePullPolicy: Never  # Ensure Kubernetes uses the local image
+        ports:
+        - containerPort: 5050
